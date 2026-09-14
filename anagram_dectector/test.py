@@ -1,9 +1,11 @@
 import pytest
 from solution import is_anagram
+from solution import find_anagrams
 from hypothesis import given
 from hypothesis import strategies as st
 
-# Unit tests
+
+# Part 1: Unit tests
 @pytest.mark.parametrize(
     "word1, word2, expected",
     [
@@ -32,3 +34,18 @@ def test_property_anagrams_missing_letters(word_1, word_2):
 @given(st.text(), st.text())
 def test_property_anagrams_diff_lengths(word_1, word_2):
     assert is_anagram(word_1, word_2) == is_anagram(word_2, word_1)
+
+# Part 2: Unit Tests
+@pytest.mark.parametrize(
+    "target, words, expected",
+    [
+        ("line", ["line"], ["line"]),
+        ("run", ["run"], ["run"]),
+        ("run", ["run", "run", "bob"], ["run", "run"]),
+        ("run", ["nru", "bob"], ["nru"]),
+        ("line", ["bob"], []),
+        ("run", ["run", "nru", "urn", "nrus"], ["run", "nru", "urn"]),
+    ]
+)
+def test_find_anagrams(target: str, words: list[str], expected: bool):
+    assert find_anagrams(target, words) == expected
