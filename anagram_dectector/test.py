@@ -50,6 +50,6 @@ def test_property_anagrams_diff_lengths(word_1, word_2):
 def test_find_anagrams(target: str, words: list[str], expected: bool):
     assert find_anagrams(target, words) == expected
 
-@given(st.text(), st.list(st.text()))
+@given(st.text(), st.lists(st.text()))
 def test_property_output_list_length(target: str, words: list[str]):
-    assert len(find_anagrams(target, words)) <= words
+    assert len(find_anagrams(target, words)) <= len(words)
