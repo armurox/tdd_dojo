@@ -21,4 +21,4 @@
 ## Properties to test
 - [x] The output list can be at most as big as the input list
 - [x] every word in the output list must be the same length as that of the target
-- [] Every word in the output list must be an anagram of the target word
+- [x] Every word in the output list must be an anagram of the target word
