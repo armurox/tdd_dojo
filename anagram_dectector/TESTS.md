@@ -16,4 +16,9 @@
 - [x] "run", ["run", "run", "bob"] -> ["run", "run"]
 - [x] "line", ["bob"] -> []
 - [x] "run", ["nru", "bob"] -> ["nru"]
-- [] "run", ["run", "nru", "urn", "nrus"] -> ["run", "nru", "urn"]™
+- [x] "run", ["run", "nru", "urn", "nrus"] -> ["run", "nru", "urn"]™
+
+## Properties to test
+- [] The output list can be at most as big as the input list
+- [] every word in the output list must be the same length as that of the input list
+- [] Every word in the output list must be an anagram of the target word
