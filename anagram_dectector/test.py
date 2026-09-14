@@ -58,3 +58,8 @@ def test_property_output_list_length(target: str, words: list[str]):
 def test_property_output_list_word_length(target: str, words: list[str]):
     for word in find_anagrams(target, words):
         assert len(word) == len(target)
+
+@given(st.text(), st.lists(st.text()))
+def test_property_output_list_is_anagram(target: str, words: list[str]):
+    for word in find_anagrams(target, words):
+        assert is_anagram(word, target)
