@@ -22,3 +22,15 @@
 - [x] The output list can be at most as big as the input list
 - [x] every word in the output list must be the same length as that of the target
 - [x] Every word in the output list must be an anagram of the target word
+
+# Part 3 Tests
+- [] [] -> []
+- [] ["eat", "eat", "bob"] -> [["eat", "eat"], ["bob"]]
+- [] ["eat", "tea", "bob", "bbo", "shoe"] -> [["eat", "tea"], ["bob", "bbo"], ["shoe"]]
+
+## Properties to test
+- [] The total number of words in the output array must be equal to the total count of the words in the input array
+- [] applying the algorithm again to any sub list, must return that sub list, and that sub list alone
+
+
+
