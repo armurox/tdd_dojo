@@ -76,3 +76,11 @@ def test_property_output_list_is_anagram(target: str, words: list[str]):
 )
 def test_find_anagrams(input: list[str], expected: list[list[str]]):
     assert group_anagrams(input) == expected
+
+@given(st.lists(st.text()))
+def test_property_total_word_count(input: list[str]):
+    output = group_anagrams(input)
+    final_sum = 0
+    for group in group_anagrams:
+        final_sum += len(group)
+    assert len(output) == final_sum
