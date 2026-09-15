@@ -71,7 +71,8 @@ def test_property_output_list_is_anagram(target: str, words: list[str]):
     [
         ([], []),
         (["eat", "eat", "bob"], [["eat", "eat"], ["bob"]]),
-        (["eat", "tea", "bob", "bbo", "shoe"], [["eat", "tea"], ["bob", "bbo"], ["shoe"]]),        
+        (["eat", "tea", "bob", "bbo", "shoe"], [["eat", "tea"], ["bob", "bbo"], ["shoe"]]),
+        (["", ""], [["", ""]])
     ]
 )
 def test_find_anagrams(input: list[str], expected: list[list[str]]):
@@ -81,6 +82,6 @@ def test_find_anagrams(input: list[str], expected: list[list[str]]):
 def test_property_total_word_count(input: list[str]):
     output = group_anagrams(input)
     final_sum = 0
-    for group in group_anagrams:
+    for group in output:
         final_sum += len(group)
-    assert len(output) == final_sum
+    assert len(input) == final_sum

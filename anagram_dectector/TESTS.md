@@ -29,7 +29,7 @@
 - [x] ["eat", "tea", "bob", "bbo", "shoe"] -> [["eat", "tea"], ["bob", "bbo"], ["shoe"]]
 
 ## Properties to test
-- [] The total number of words in the output array must be equal to the total count of the words in the input array
+- [x] The total number of words in the output array must be equal to the total count of the words in the input array
 - [] applying the algorithm again to any sub list, must return that sub list, and that sub list alone
 
 
