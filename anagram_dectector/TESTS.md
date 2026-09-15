@@ -24,9 +24,9 @@
 - [x] Every word in the output list must be an anagram of the target word
 
 # Part 3 Tests
-- [] [] -> []
-- [] ["eat", "eat", "bob"] -> [["eat", "eat"], ["bob"]]
-- [] ["eat", "tea", "bob", "bbo", "shoe"] -> [["eat", "tea"], ["bob", "bbo"], ["shoe"]]
+- [x] [] -> []
+- [x] ["eat", "eat", "bob"] -> [["eat", "eat"], ["bob"]]
+- [x] ["eat", "tea", "bob", "bbo", "shoe"] -> [["eat", "tea"], ["bob", "bbo"], ["shoe"]]
 
 ## Properties to test
 - [] The total number of words in the output array must be equal to the total count of the words in the input array

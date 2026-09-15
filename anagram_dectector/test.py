@@ -1,4 +1,5 @@
 import pytest
+from solution import group_anagrams
 from solution import is_anagram
 from solution import find_anagrams
 from hypothesis import given
@@ -63,3 +64,15 @@ def test_property_output_list_word_length(target: str, words: list[str]):
 def test_property_output_list_is_anagram(target: str, words: list[str]):
     for word in find_anagrams(target, words):
         assert is_anagram(word, target)
+
+
+@pytest.mark.parametrize(
+    "input, expected",
+    [
+        ([], []),
+        (["eat", "eat", "bob"], [["eat", "eat"], ["bob"]]),
+        (["eat", "tea", "bob", "bbo", "shoe"], [["eat", "tea"], ["bob", "bbo"], ["shoe"]]),        
+    ]
+)
+def test_find_anagrams(input: list[str], expected: list[list[str]]):
+    assert group_anagrams(input) == expected
