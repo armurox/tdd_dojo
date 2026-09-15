@@ -30,7 +30,7 @@
 
 ## Properties to test
 - [x] The total number of words in the output array must be equal to the total count of the words in the input array
-- [] applying the algorithm again to any sub list, must return that sub list, and that sub list alone
+- [x] applying the algorithm again to any sub list, must return that sub list, and that sub list alone
 
 
 

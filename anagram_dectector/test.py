@@ -85,3 +85,9 @@ def test_property_total_word_count(input: list[str]):
     for group in output:
         final_sum += len(group)
     assert len(input) == final_sum
+
+@given(st.lists(st.text()))
+def test_property_idempotency(input: list[str]):
+    output = group_anagrams(input)
+    for group in output:
+        assert group_anagrams(group)[0] == group 
