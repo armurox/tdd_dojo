@@ -18,4 +18,3 @@ def group_anagrams(input: list[str]) -> list[list[str]]:
     for elem in input:
         grouped_anagrams["".join(sorted(elem))].append(elem)
     return list(grouped_anagrams.values())
-
