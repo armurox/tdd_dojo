@@ -11,8 +11,12 @@ class MarsRover:
         self.starting_pos = starting_pos
         self.starting_dir = starting_dir
         self.grid_size = grid_size
-        self.current_position = starting_pos
-        self.current_direction = starting_dir
+        self.current_position = [0, 0]
+        self.current_position[0] = starting_pos[0] % grid_size[0]
+        self.current_position[1] = starting_pos[1] % grid_size[1]
+        self.current_direction = starting_dir.lower()
+        if self.current_direction not in self.DIRECTIONS:
+            raise AssertionError(f'Starting direction must be one of {self.DIRECTIONS}')
     
     def move(self, instructions: str) -> None:
         for instruction in instructions:
