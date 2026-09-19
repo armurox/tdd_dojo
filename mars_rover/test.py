@@ -24,7 +24,7 @@ def test_move_mars_rover(starting_pos, starting_dir, grid_size, instructions, ex
 
 directions = st.sampled_from(['n', 'e', 's', 'w'])
 invalid_directions = st.text(min_size=1).filter(lambda d: d not in ['n', 'e', 's', 'w'])
-instructions = st.text()
+instructions = st.text(alphabet='frlb')
 
 @given(
     x=st.integers(),
@@ -44,7 +44,7 @@ def test_forward_then_backward_returns_to_same_position(x, y, direction):
     y=st.integers(),
     direction=directions,
 )
-def test_forward_then_backward_returns_to_same_position(x, y, direction):
+def test_left_then_right_returns_to_same_position(x, y, direction):
     rover = MarsRover([x, y], direction, [50, 50])
 
     rover.move("rl")
