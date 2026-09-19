@@ -13,3 +13,6 @@
 
 
 # Part 3: Properties
+- [x] Final position should always be inside the grid
+- [x] Moving forward then backwards should result in the same position
+- [] turning right, then left should result in the same direction 

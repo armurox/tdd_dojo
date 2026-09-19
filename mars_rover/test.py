@@ -43,6 +43,19 @@ def test_forward_then_backward_returns_to_same_position(x, y, direction):
     x=st.integers(),
     y=st.integers(),
     direction=directions,
+)
+def test_forward_then_backward_returns_to_same_position(x, y, direction):
+    rover = MarsRover([x, y], direction, [50, 50])
+
+    rover.move("rl")
+
+    assert rover.current_position == [x % 50, y % 50]
+    assert rover.current_direction == direction.lower()
+
+@given(
+    x=st.integers(),
+    y=st.integers(),
+    direction=directions,
     instructions=instructions,
     grid_x=st.integers(min_value=1),
     grid_y=st.integers(min_value=1),
