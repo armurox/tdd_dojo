@@ -61,6 +61,6 @@ def test_final_position_always_inside_grid(x, y, direction, instructions, grid_x
     grid_x=st.integers(min_value=1),
     grid_y=st.integers(min_value=1),
 )
-def test_final_position_always_inside_grid(x, y, direction, instructions, grid_x, grid_y):
+def test_invalid_directions(x, y, direction, instructions, grid_x, grid_y):
     with pytest.raises(AssertionError):
         rover = MarsRover([x,y], direction, [grid_x, grid_y])
