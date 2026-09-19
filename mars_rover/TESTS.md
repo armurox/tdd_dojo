@@ -17,3 +17,4 @@
 - [x] Moving forward then backwards should result in the same position
 - [x] turning right, then left should result in the same direction 
 - [] moving full grid width returns to same position
+- [] Case doesn't matter
