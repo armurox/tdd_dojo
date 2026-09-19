@@ -4,7 +4,7 @@ class MarsRover:
         'f': 'move_forward',
         'r': 'turn_right',
         'l': 'turn_left',
-        'b': 'turn_backwards',
+        'b': 'move_backwards',
     }
     
     def __init__(self, starting_pos: list[int], starting_dir: str, grid_size: list[int]) -> None:

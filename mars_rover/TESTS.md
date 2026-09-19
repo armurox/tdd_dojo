@@ -4,6 +4,7 @@
 - [x] ([0, 0], 'e', [50, 50]) + 'ffrff' -> fp: [2,2] + fd: 's'
 - [x] ([0, 0], 'e', [50, 50]) + 'ffrrff' -> fp: [0,0] + fd: 'w'
 - [x] ([0, 0], 'e', [50, 50]) + 'ffrrffrfflffr' -> fp: [48,48] + fd: 'n'
+- [x] ([0, 0], 'e', [50, 50]) + 'ffrrffrfflfbr' -> fp: [48,489] + fd: 'n'
 
 
 # Part 2: Handling weirder inputs
