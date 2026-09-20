@@ -7,6 +7,13 @@ class MarsRover:
         'b': 'move_backwards',
     }
     
+    DIRECTION_TO_VECTOR = {
+        'n': (0, -1),
+        'e': (1, 0),
+        's': (0, 1),
+        'w': (-1, 0),
+    }
+    
     def __init__(self, starting_pos: list[int], starting_dir: str, grid_size: list[int]) -> None:
         self.starting_pos = starting_pos
         self.starting_dir = starting_dir
@@ -26,28 +33,10 @@ class MarsRover:
                 getattr(self, method_name)()
     
     def move_forward(self):
-        if self.current_direction == 'e':
-            self.current_position[0] += 1
-        elif self.current_direction == 's':
-            self.current_position[1] += 1
-        elif self.current_direction == 'w':
-            self.current_position[0] -= 1
-        elif self.current_direction == 'n':
-            self.current_position[1] -= 1
-        self.current_position[0] = self.current_position[0] % self.grid_size[0]
-        self.current_position[1] = self.current_position[1] % self.grid_size[1]
+        self._move(1)
     
     def move_backwards(self):
-        if self.current_direction == 'e':
-            self.current_position[0] -= 1
-        elif self.current_direction == 's':
-            self.current_position[1] -= 1
-        elif self.current_direction == 'w':
-            self.current_position[0] += 1
-        elif self.current_direction == 'n':
-            self.current_position[1] += 1
-        self.current_position[0] = self.current_position[0] % self.grid_size[0]
-        self.current_position[1] = self.current_position[1] % self.grid_size[1]
+        self._move(-1)
 
     def turn_right(self):
         next_direction_index = (self.DIRECTIONS.index(self.current_direction) + 1) % len(self.DIRECTIONS)
@@ -56,3 +45,8 @@ class MarsRover:
     def turn_left(self):
         next_direction_index = (self.DIRECTIONS.index(self.current_direction) - 1) % len(self.DIRECTIONS)
         self.current_direction = self.DIRECTIONS[next_direction_index]
+
+    def _move(self, multiplier: int) -> None:
+        dx, dy = self.DIRECTION_TO_VECTOR[self.current_direction]
+        self.current_position[0] = (self.current_position[0] + (multiplier * dx)) % self.grid_size[0]
+        self.current_position[1] = (self.current_position[1] + (multiplier * dy)) % self.grid_size[1]
