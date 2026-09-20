@@ -27,7 +27,7 @@ class MarsRover:
         if self.current_direction not in self.DIRECTIONS:
             raise AssertionError(f'Starting direction must be one of {self.DIRECTIONS}')
     
-    def move(self, instructions: str) -> None:
+    def execute(self, instructions: str) -> None:
         for instruction in instructions:
             instruction = instruction.lower()
             if instruction in self.MOVEMENT_INSTRUCTIONS:

@@ -18,12 +18,12 @@ from hypothesis import strategies as st
 )
 def test_move_mars_rover(starting_pos, starting_dir, grid_size, instructions, expected_final_pos, expected_final_dir):
     rover = MarsRover(starting_pos, starting_dir, grid_size)
-    rover.move(instructions)
+    rover.execute(instructions)
     assert rover.current_position == expected_final_pos
     assert rover.current_direction == expected_final_dir
 
 directions = st.sampled_from(['n', 'e', 's', 'w'])
-invalid_directions = st.text(min_size=1).filter(lambda d: d not in ['n', 'e', 's', 'w'])
+invalid_directions = st.text(min_size=1).filter(lambda d: d not in ['n', 'e', 's', 'w', 'N', 'E', 'S', 'W'])
 instructions = st.text(alphabet='frlb')
 
 @given(
@@ -34,7 +34,7 @@ instructions = st.text(alphabet='frlb')
 def test_forward_then_backward_returns_to_same_position(x, y, direction):
     rover = MarsRover([x, y], direction, [50, 50])
 
-    rover.move("fb")
+    rover.execute("fb")
 
     assert rover.current_position == [x % 50, y % 50]
     assert rover.current_direction == direction.lower()
@@ -47,7 +47,7 @@ def test_forward_then_backward_returns_to_same_position(x, y, direction):
 def test_left_then_right_returns_to_same_position(x, y, direction):
     rover = MarsRover([x, y], direction, [50, 50])
 
-    rover.move("rl")
+    rover.execute("rl")
 
     assert rover.current_position == [x % 50, y % 50]
     assert rover.current_direction == direction.lower()
@@ -62,7 +62,7 @@ def test_left_then_right_returns_to_same_position(x, y, direction):
 )
 def test_final_position_always_inside_grid(x, y, direction, instructions, grid_x, grid_y):
     rover = MarsRover([x,y], direction, [grid_x, grid_y])
-    rover.move(instructions)
+    rover.execute(instructions)
     assert 0 <= rover.current_position[0] < grid_x
     assert 0 <= rover.current_position[1] < grid_y
 
