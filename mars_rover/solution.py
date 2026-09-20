@@ -14,7 +14,7 @@ class MarsRover:
         'w': (-1, 0),
     }
     
-    def __init__(self, starting_pos: list[int], starting_dir: str, grid_size: list[int]) -> None:
+    def __init__(self, starting_pos: list[int], starting_dir: str, grid_size: list[int], obstacles: set[tuple[int]] = set()) -> None:
         self.starting_pos = starting_pos
         self.starting_dir = starting_dir
         self.grid_size = grid_size
@@ -22,6 +22,8 @@ class MarsRover:
         self.current_position[0] = starting_pos[0] % grid_size[0]
         self.current_position[1] = starting_pos[1] % grid_size[1]
         self.current_direction = starting_dir.lower()
+        self.obstacles = obstacles
+        self.last_obstacle = None
         if self.current_direction not in self.DIRECTIONS:
             raise AssertionError(f'Starting direction must be one of {self.DIRECTIONS}')
     
